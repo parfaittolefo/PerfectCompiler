@@ -3,7 +3,7 @@
 `apt-get install python2 && apt-get install python3 && apt-get install gcc && apt-get install g++`
 
 
-**Téléchargé ici:** [PerfectCompiler](https://github.com/parfaittolefo/QT-Project/raw/main/PerfectCompiler/build-mainwindow-Desktop_Qt_5_12_12_GCC_64bit-Debug/mainwindow)
+**Téléchargé ici:** [PerfectCompiler](https://github.com/parfaittolefo/PerfectCompiler/raw/main/PerfectCompiler/build-mainwindow-Desktop_Qt_5_12_12_GCC_64bit-Debug/mainwindow)
 
 # Si votre système est en français :
 
