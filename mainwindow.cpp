@@ -138,21 +138,13 @@ void MainWindow::on_INPUT_FILE_BTN_clicked()
 
 }
 
-void MainWindow::okbtn_clicked()
-{
-    input=Standart_input->toPlainText();
-    Input_widget->hide();
-    ui->INPUT_BRS->setText(input);
-}
-
-
 
 void MainWindow::on_RUN_BTN_clicked()
 {
     ui->OUTPUT_BRS->clear();
     QString langage;
     langage= ui->LANGAGE_CMX->currentText();
-
+    input=ui->INPUT_BRS->toPlainText();
    // QMessageBox::information(0,"Langage choice","You are going to run your code in "+langage);
 
     //Recuperation of code_brs content
@@ -168,14 +160,28 @@ void MainWindow::on_RUN_BTN_clicked()
 
               system("echo '' > /tmp/result.txt> ");
 
-            // start time
-            QTime myTimer;
-            myTimer.start();
+            if(!input.isEmpty())
+            {
+                // start time
+                QTime myTimer;
+                myTimer.start();
 
-            //Program execution
-           system("cat /tmp/input.txt | /tmp/compile_code >> /tmp/result.txt 2>> /tmp/result.txt");
-           int time = myTimer.elapsed();
+                //Program execution
+                system("cat /tmp/input.txt | /tmp/compile_code >> /tmp/result.txt 2>> /tmp/result.txt");
+                 time = myTimer.elapsed();
+            }
 
+            else
+            {
+
+                // start time
+                QTime myTimer;
+                myTimer.start();
+
+                //Program execution
+                system("cat /tmp/input.txt | /tmp/compile_code >> /tmp/result.txt 2>> /tmp/result.txt");
+                 time = myTimer.elapsed();
+            }
            //print output
             PrintResult();
            // time of running
@@ -197,18 +203,36 @@ void MainWindow::on_RUN_BTN_clicked()
 
         //chmod +x compile_code
             system("chmod +x /tmp/compile_code");
+            if(!input.isEmpty())
+            {
+                // start time
+                system("echo '' > /tmp/result.txt> ");
+                QTime myTimer;
+                myTimer.start();
 
-            // start time
-            system("echo '' > /tmp/result.txt> ");
-            QTime myTimer;
-            myTimer.start();
+
+                //Program execution
+                system("cat /tmp/input.txt | /tmp/compile_code >> /tmp/result.txt 2>> /tmp/result.txt");
+
+                // time of running
+                 time = myTimer.elapsed();
+            }
+
+            else{
+
+                // start time
+                system("echo '' > /tmp/result.txt> ");
+                QTime myTimer;
+                myTimer.start();
 
 
-        //Program execution
-           system("cat /tmp/input.txt | /tmp/compile_code >> /tmp/result.txt 2>> /tmp/result.txt");
+                //Program execution
+                system("/tmp/compile_code >> /tmp/result.txt 2>> /tmp/result.txt");
 
-           // time of running
-          int time = myTimer.elapsed();
+                // time of running
+                 time = myTimer.elapsed();
+            }
+
 
        //Delete binary file
            system("rm -r /tmp/compile_code");
@@ -223,14 +247,27 @@ void MainWindow::on_RUN_BTN_clicked()
     if(langage=="python2")
     {
         system("echo '' > /tmp/result.txt ");
+    if(!input.isEmpty())
+    {
+        // start time
+        QTime myTimer;
+        myTimer.start();
+        system("cat /tmp/input.txt | python2 /tmp/code_file >> /tmp/result.txt 2>> /tmp/result.txt");
+
+        // time of running
+       time = myTimer.elapsed();
+    }
+
+    else{
 
         // start time
         QTime myTimer;
         myTimer.start();
-         system("cat /tmp/input.txt | python2 /tmp/code_file >> /tmp/result.txt 2>> /tmp/result.txt");
+        system("python2 /tmp/code_file >> /tmp/result.txt 2>> /tmp/result.txt");
 
         // time of running
-         int time = myTimer.elapsed();
+       time = myTimer.elapsed();
+    }
 
         PrintResult();
 
@@ -242,17 +279,29 @@ void MainWindow::on_RUN_BTN_clicked()
     if(langage=="python3")
     {
 
-        system("echo '' > /tmp/result.txt> ");
+        system("echo '' > /tmp/result.txt");
+        if(!input.isEmpty())
+        {
+            // start time
+            QTime myTimer;
+            myTimer.start();
 
-        // start time
-        QTime myTimer;
-        myTimer.start();
+            //execution
+            system("cat /tmp/input.txt | python3 /tmp/code_file >> /tmp/result.txt 2>> /tmp/result.txt ");
+            // time of running
+          time = myTimer.elapsed();
+        }
+        else
+        {
+            // start time
+            QTime myTimer;
+            myTimer.start();
 
-        //execution
-        system("cat /tmp/input.txt | python3 /tmp/code_file >> /tmp/result.txt 2>> /tmp/result.txt ");
-        // time of running
-       int time = myTimer.elapsed();
-
+            //execution
+            system("python3 /tmp/code_file >> /tmp/result.txt 2>> /tmp/result.txt ");
+            // time of running
+          time = myTimer.elapsed();
+        }
         PrintResult();
 
         QString s = QString::number(time);

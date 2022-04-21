@@ -19,6 +19,7 @@ public:
     QString Code_file_name,input_file,compile_file,copie_file;
     QPlainTextEdit* Standart_input;
     QWidget* Input_widget;
+    int time;
     void ErrorPrinter(int sts);
     void PrintResult(void);
 
@@ -26,8 +27,6 @@ private slots:
     void on_FILE_BTN_clicked();
 
     void on_INPUT_FILE_BTN_clicked();
-
-    void okbtn_clicked();
 
     void on_RUN_BTN_clicked();
 
