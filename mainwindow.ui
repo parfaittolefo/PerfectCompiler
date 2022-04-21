@@ -308,7 +308,8 @@ font-size:16pt; font-weight:600; color:#3425e3;</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background-color: rgb(205, 171, 143);
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="html">
         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -330,7 +331,8 @@ p, li { white-space: pre-wrap; }
     <item row="6" column="1">
      <widget class="QTextBrowser" name="OUTPUT_BRS">
       <property name="styleSheet">
-       <string notr="true">color: rgb(99, 69, 44);
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(205, 171, 143);
 font: 75 italic 14pt &quot;DejaVu Math TeX Gyre&quot;;</string>
       </property>
      </widget>

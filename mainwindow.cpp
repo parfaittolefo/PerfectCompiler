@@ -315,9 +315,7 @@ void MainWindow::on_RUN_BTN_clicked()
 
 void MainWindow::on_INPUT_BRS_textChanged()
 {
-    ui->INPUT_BRS->setStyleSheet("font: 14pt ;");
-    ui->INPUT_BRS->setTextColor(Qt::black);
-    ui->INPUT_BRS->setFontWeight(70);
+
 
     system("echo '' > /tmp/input.txt ");
     QFile file("/tmp/input.txt" );
