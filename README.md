@@ -7,13 +7,13 @@
 
 # Si votre système est en français :
 
-`cd ~/Téléchargements && mv mainwindow PerfectCompiler && sudo mv PerfectCompiler /usr/local/bin/`
+`cd ~/Téléchargements && sudo chmod +x mainwindow && mv mainwindow PerfectCompiler && sudo mv PerfectCompiler /usr/local/bin/`
 
 **PerfectCompiler** vient de s'installer.
 
 # Si votre système est en anglais :
 
-`cd ~/Downloads && mv mainwindow PerfectCompiler && sudo mv PerfectCompiler /usr/local/bin/`
+`cd ~/Downloads && sudo chmod +x mainwindow && mv mainwindow PerfectCompiler && sudo mv PerfectCompiler /usr/local/bin/`
 
 **PerfectCompiler** vient de s'installer.
 
