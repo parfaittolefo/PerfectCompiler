@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     //ui->CODE_BRS->setReadOnly(true);
     ui->RUN_BTN->setEnabled(false);
     QWidget::setWindowTitle("PerfectCompiler");
+
 }
 
 MainWindow::~MainWindow()
@@ -314,6 +315,10 @@ void MainWindow::on_RUN_BTN_clicked()
 
 void MainWindow::on_INPUT_BRS_textChanged()
 {
+    ui->INPUT_BRS->setStyleSheet("font: 14pt ;");
+    ui->INPUT_BRS->setTextColor(Qt::black);
+    ui->INPUT_BRS->setFontWeight(70);
+
     system("echo '' > /tmp/input.txt ");
     QFile file("/tmp/input.txt" );
     if ( file.open(QIODevice::ReadWrite) )
