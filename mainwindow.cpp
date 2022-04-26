@@ -71,8 +71,8 @@ void MainWindow::on_FILE_BTN_clicked()
 
     if (!file.isEmpty())
     {
+        system("echo '' > /tmp/code_file 2> /dev/null");
         ui->RUN_BTN->setEnabled(true);
-
 
           QProcess::execute("cp "+file_orig+" /tmp/code_file");
           file="/tmp/code_file";
@@ -154,12 +154,12 @@ void MainWindow::on_RUN_BTN_clicked()
     {
         //Program compilation
         system("cp /tmp/code_file /tmp/code_file.c");
-         QProcess::execute("gcc /tmp/code_file.c -o /tmp/compile_code");
+         QProcess::execute("gcc /tmp/code_file.c -o /tmp/compile_code 2 > /dev/null");
 
         //chmod +x compile_code
-            system("chmod +x /tmp/compile_code");
+            system("chmod +x /tmp/compile_code 2 > /dev/null");
 
-              system("echo '' > /tmp/result.txt> ");
+              system("echo '' > /tmp/result.txt 2 > /dev/null ");
 
             if(!input.isEmpty())
             {
@@ -199,15 +199,15 @@ void MainWindow::on_RUN_BTN_clicked()
     if(langage=="C++")
     {
         //Program compilation
-        QProcess::execute("cp /tmp/code_file /tmp/code_file.cpp");
-        QProcess::execute("g++ /tmp/code_file.cpp -o /tmp/compile_code");
+        QProcess::execute("cp /tmp/code_file /tmp/code_file.cpp 2 > /dev/null");
+        QProcess::execute("g++ /tmp/code_file.cpp -o /tmp/compile_code 2 > /dev/null");
 
         //chmod +x compile_code
-            system("chmod +x /tmp/compile_code");
+            system("chmod +x /tmp/compile_code 2 > /dev/null");
             if(!input.isEmpty())
             {
                 // start time
-                system("echo '' > /tmp/result.txt> ");
+                system("echo '' > /tmp/result.txt ");
                 QTime myTimer;
                 myTimer.start();
 
@@ -222,7 +222,7 @@ void MainWindow::on_RUN_BTN_clicked()
             else{
 
                 // start time
-                system("echo '' > /tmp/result.txt> ");
+                system("echo '' > /tmp/result.txt 2 > /dev/null ");
                 QTime myTimer;
                 myTimer.start();
 
@@ -236,7 +236,7 @@ void MainWindow::on_RUN_BTN_clicked()
 
 
        //Delete binary file
-           system("rm -r /tmp/compile_code");
+           system("rm -r /tmp/compile_code 2 > /dev/null");
 
            PrintResult();
                 QString s = QString::number(time);
@@ -280,7 +280,7 @@ void MainWindow::on_RUN_BTN_clicked()
     if(langage=="python3")
     {
 
-        system("echo '' > /tmp/result.txt");
+        system("echo '' > /tmp/result.txt 2 > /dev/null");
         if(!input.isEmpty())
         {
             // start time
@@ -316,7 +316,7 @@ void MainWindow::on_RUN_BTN_clicked()
 void MainWindow::on_INPUT_BRS_textChanged()
 {
 
-    system("echo '' > /tmp/input.txt ");
+    system("echo '' > /tmp/input.txt 2 > /dev/null");
     QFile file("/tmp/input.txt" );
     if ( file.open(QIODevice::ReadWrite) )
     {
