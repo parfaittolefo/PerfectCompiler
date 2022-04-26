@@ -316,7 +316,6 @@ void MainWindow::on_RUN_BTN_clicked()
 void MainWindow::on_INPUT_BRS_textChanged()
 {
 
-
     system("echo '' > /tmp/input.txt ");
     QFile file("/tmp/input.txt" );
     if ( file.open(QIODevice::ReadWrite) )

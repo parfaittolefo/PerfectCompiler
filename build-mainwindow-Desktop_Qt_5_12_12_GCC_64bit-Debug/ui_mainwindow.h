@@ -224,6 +224,8 @@ public:
         INPUT_BRS->setSizePolicy(sizePolicy);
         INPUT_BRS->setMinimumSize(QSize(700, 0));
         INPUT_BRS->setSizeIncrement(QSize(50, 0));
+        INPUT_BRS->setStyleSheet(QString::fromUtf8("font: italic 14pt \"Cantarell\";\n"
+"color: rgb(0, 0, 0);"));
         splitter->addWidget(INPUT_BRS);
 
         gridLayout->addWidget(splitter, 4, 1, 1, 1);
@@ -235,6 +237,8 @@ public:
 
         OUTPUT_BRS = new QTextBrowser(centralwidget);
         OUTPUT_BRS->setObjectName(QString::fromUtf8("OUTPUT_BRS"));
+        OUTPUT_BRS->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"font: 75 italic 15pt \"DejaVu Math TeX Gyre\";"));
 
         gridLayout->addWidget(OUTPUT_BRS, 6, 1, 1, 1);
 
@@ -296,9 +300,9 @@ public:
         INPUT_BRS->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; text-decoration: underline; color:#1a5fb4;\">INPUT</span></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'Cantarell'; font-size:14pt; font-weight:400; font-style:italic;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-style:normal;\"><br /></p></body></html>", nullptr));
+        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#1a5fb4;\">INPUT</span></p></body></html>", nullptr));
         CODE_BRS->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
