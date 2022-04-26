@@ -74,7 +74,7 @@ void MainWindow::on_FILE_BTN_clicked()
         system("echo '' > /tmp/code_file 2> /dev/null");
         ui->RUN_BTN->setEnabled(true);
 
-          QProcess::execute("cp "+file_orig+" /tmp/code_file");
+          QProcess::execute("cp \""+file_orig+"\" /tmp/code_file");
           file="/tmp/code_file";
           QFile Myfile(file);
         if(Myfile.open(QIODevice::ReadOnly | QIODevice::Text))
